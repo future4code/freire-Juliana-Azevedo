@@ -74,9 +74,10 @@ function calculaIngressosEspetaculo(custo, valorIngresso) {
 
 // EXERCÍCIO 08
 function checaStringsMesmoTamanho(string1, string2) {
-  const palavra1 = string1.lenght
-  const palavra2 = string2.lenght
+  const frase1 = string1.lenght
+  const frase2 = string2.lenght
   return string1.length == string2.length
+
 
 }
 
@@ -89,22 +90,21 @@ function retornaPrimeiroElemento(array) {
 
 // EXERCÍCIO 10
 function retornaUltimoElemento(array) {
-
-  return array[array.lenght-1]
+  
+  return array [array.length -1]
 
 }
-console.log(retornaUltimoElemento())
+
 
 
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
-const tam = array.lenght
-const temp = array[0]
-array[0] = array[tam-1]
-array[tam-1] = temp
+  const ultimoElemento = array[array.length -1]
+  const primeiroElemento = array[0]
+  array[0] = ultimoElemento
+  array[array.length-1] = primeiroElemento
 
-return array
-
+  return array
 }
 
 
@@ -122,12 +122,14 @@ function checaRenovacaoRG() {
   let anoAtual = Number(prompt("digite o ano atual"))
   let anoDeNascimento = Number(prompt("Qual seu ano de nasimento?"))
   let anoCarteira = Number(prompt("Digite a data de emissão da sua identidade:"))
-  let oAno = anoAtual - anoDeNascimento
-  let pessoaMaisNova = oAno <= 20 && anoAtual - anoCarteira >= 5 
-  let pessoasMelhorFase = oAno > 20 && oAno <= 50 && anoAtual >= 10
-  let pessoaExperiente = oAno > 50 && anoAtual >= 15
+  let idade = anoAtual - anoDeNascimento
+  let idadeCarteira = anoAtual - anoCarteira
+  let pessoaMaisNova = (idade <= 20) && (idadeCarteira >=5) 
+  let pessoasMelhorFase = (idade > 20) && (idade <= 50) && (idadeCarteira >= 10)
+  let pessoaExperiente = (idade > 50) && (idadeCarteira > 15)
+  let renovacao = pessoaMaisNova || pessoasMelhorFase || pessoaExperiente
 
-  console.log(pessoaMaisNova||pessoasMelhorFase||pessoaExperiente)
+  return console.log(renovacao)
 
 }
 
@@ -139,6 +141,12 @@ function checaAnoBissexto(ano) {
 
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
-  // implemente sua lógica aqui
 
+  let idade = prompt("Você tem mais de 18 anos?")
+
+  let ensino = prompt("Você possui ensino médio completo?")
+  let disponibilidade = prompt("Você possui disponibilidade exclusiva durante os horários do curso?")
+  let resposta = idade == ensino == disponibilidade
+  
+  return console.log(resposta) 
 }
